@@ -30,9 +30,9 @@ def signup(request):
         pass1 = request.POST.get('pass1')
         pass2 = request.POST.get('pass2')
 
-        # if User.objects.filter(username=username):
-        #     messages.error(request, 'Username already taken! Choose some other username!')
-        #     return redirect('home')
+        if User.objects.filter(username=username):
+            messages.error(request, 'Username already taken! Choose some other username!')
+            return redirect('home')
         
         # if User.objects.filter(email=email):
         #     messages.error(request, "This Email is already registered")
